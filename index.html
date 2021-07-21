@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Constellation</title>
+  <script src="./js/vendor/jquery-3.6.0.min.js"></script>
+  <script src="./js/bundle.js"></script>
+  <link rel="stylesheet" href="./css/style.css">
+</head>
+<body>
+<div id="background-img">
+  <canvas id="background-canvas"></canvas>
+</div>
+<div id="ctr-panel">
+  <button id="view-ctr-panel">Show Controls</button>
+  <div id="bkgd-buttons">
+    <p>Mode:</p>
+    <div id="bkgd-modes">
+      <button class="active" data-bkgd-mode="default">Reset</button>
+      <button data-bkgd-mode="coalesce">Coalesce*</button>
+      <button data-bkgd-mode="radiate">Radiate</button>
+      <button data-bkgd-mode="create">Create</button>
+      <button data-bkgd-mode="destroy">Destroy*</button>
+    </div>
+    <p>*click and hold</p>
+    <label><input type="checkbox" id="hide-lines">Erase Lines</label>
+  </div>
+</div>
+</body>
+</html>
