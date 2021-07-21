@@ -1,0 +1,26 @@
+/* style */
+body {
+  position: relative;
+  height: 100%;
+  font-family: 'Lato', sans-serif;
+  background-color: $dark-blue;
+  color: $light-gray;
+  overflow: auto;
+}
+
+body * {
+  -webkit-touch-callout: none;
+    -webkit-user-select: none;
+        -ms-user-select: none;
+            user-select: none; 
+}
+
+#background-img {
+  position: fixed;
+  display: block;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  touch-action: none;
+}
