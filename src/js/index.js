@@ -16,6 +16,8 @@ $(() => {
     
     hideLinesOption: document.getElementById('hide-lines'),
 
+    $destroyShapesButton: $('#destroy-shapes'),
+
     _hideControls: function () {
       this.$viewCtrPanelButton.removeClass('active').html('&xdtri;');
       this.$bkgdButtons.removeClass('show');
@@ -54,6 +56,9 @@ $(() => {
       $('#bkgd-modes').on('click', 'button', this._changeMode.bind(this));
       this.hideLinesOption.addEventListener('click', () => {
         this.constellation.toggleLines()
+      });
+      this.$destroyShapesButton.on('click', () => {
+        this.constellation.destroyShapes();
       });
     },
   };

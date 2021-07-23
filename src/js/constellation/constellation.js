@@ -2,14 +2,18 @@ import Point from './point';
 import Vertex from './vertex';
 import Shape from './shape';
 import Mouse from './mouse';
-import { defaultArtboard } from './artboard';
+
+const defaultArtboard = {
+  points: {},
+  lines: [],
+  polygons: [],
+};
 
 class Constellation {
   constructor(tagId, artboard = defaultArtboard) {
     this.canvas = {};
     this.mouse = new Mouse;
     this.modified = false;
-    this.noScale = artboard.options.noScale;
 
     this._initCanvas(tagId);
     this._initShapes(artboard);
@@ -24,6 +28,10 @@ class Constellation {
   toggleLines() {
     this.lines = [];
     this.noLines = !this.noLines;
+  }
+
+  destroyShapes() {
+    this.polygons = [];
   }
 
   resetArtboard(artboard) {
@@ -92,15 +100,10 @@ class Constellation {
     this.vertices = [];
     this.points = [];
     for (const id in points) {
-      const ptObj = new Point(
-        points[id][0], 
-        points[id][1],
-        Number(id),
-        this.canvas, 
-        this.mouse
-      );
-      if (this.noScale) {
-        ptObj.stretchToCanvas(100, 100)
+      const [x, y, hidden] = points[id];
+      const ptObj = new Point(x, y, Number(id), this.canvas, this.mouse);
+      if (this.stretch) {
+        ptObj.stretchToCanvas(100, 100);
       } else {
         ptObj.scaleToArtboard();
       }
@@ -108,25 +111,35 @@ class Constellation {
       this.points.push(ptObj);
 
       // vertex will handle visual aspect of a point
-      this.vertices.push(new Vertex(ptObj));
+      if (!hidden) this.vertices.push(new Vertex(ptObj));
     }
 
-    this.lines = lines.map((pointIds) => new Shape(pointIds, this.points));
+    // Performance increases when lines are limited to two points
+    this.lines = [];
+    lines.forEach((line) => {
+      for (let i = 0; i < line.length - 1; i++) {
+        this.lines.push(new Shape([line[i], line[i + 1]], this.points));
+      }
+    });
 
     this.polygons = polygons.map((pointIds) => (
       new Shape(pointIds, this.points, true)
     ));
   }
 
-  _setShapeOptions(options) {
-    const { scaleDown, vertices, shapes } = options;
-    Vertex.options = { ...options.vertices };
-    Shape.options = { ...options.shapes };
+  _setShapeOptions({ scaleDown, vertices, shapes, stretch, lineCap }) {
+    // if (lineCap) this.canvas.ctx.lineCap = lineCap;
+    this.stretch = stretch;
+    Vertex.options = Object.assign({}, Vertex.options, vertices);
+    Shape.options = Object.assign({}, Shape.options, shapes);
     if (scaleDown && window.innerWidth < scaleDown.maxWidth) {
       const factor = scaleDown.factor;
-      Vertex.options.lineWidth = vertices.lineWidth / factor;
-      Vertex.options.radius = vertices.radius / factor;
-      Shape.options.lineWidth = shapes.lineWidth / factor;
+      if (vertices) {
+        Vertex.options.lineWidth = vertices.lineWidth / factor;
+        Vertex.options.radius = vertices.radius / factor;
+      }
+
+      if (shapes) Shape.options.lineWidth = shapes.lineWidth / factor;
     }
   }
 
@@ -141,6 +154,7 @@ class Constellation {
     ctx.lineWidth = Shape.options.lineWidth;
     ctx.strokeStyle = Shape.options.strokeColor;
     ctx.fillStyle = Shape.options.fillColor;
+    if (Shape.options.lineCap) ctx.lineCap = Shape.options.lineCap;
     this.polygons.forEach((shape) => shape.draw(ctx));
     this.lines.forEach((shape) => shape.draw(ctx));
 
@@ -179,10 +193,9 @@ class Constellation {
     const oldH = this.canvas.el.height;
     this.canvas.el.height = newH;
     this.canvas.el.width = newW;
-    if (window.innerWidth < 768) return;
     
     // when an artboard is modified, the scaling will change
-    if (this.modified || this.noScale) {
+    if (this.modified || this.stretch) {
       this.points.forEach((pt) => pt.stretchToCanvas(oldW, oldH));
     } else {
       this.points.forEach((pt) => pt.scaleToArtboard());

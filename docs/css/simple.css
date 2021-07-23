@@ -1,0 +1,42 @@
+/* Reset */
+html, body, header, footer, section,
+a, h1, h2, img, p, div, button, canvas {
+  margin: 0;
+  border: 0;
+  padding: 0;
+  outline: 0;
+  box-sizing: inherit;
+  font: inherit;
+  text-decoration: inherit;
+  text-align: inherit;
+  color: inherit;
+  background: transparent;
+}
+
+/* style */
+body {
+  position: relative;
+  height: 100%;
+  font-family: "Lato", sans-serif;
+  background-color: #F5EFD5;
+  overflow: auto;
+}
+
+body * {
+  -webkit-touch-callout: none;
+  -webkit-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+}
+
+#background-img {
+  position: fixed;
+  display: block;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  touch-action: none;
+}
+
+/*# sourceMappingURL=simple.css.map */

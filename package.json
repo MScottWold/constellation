@@ -1,24 +1,26 @@
 {
-  "name": "personal_site",
+  "name": "constellation",
   "version": "1.0.0",
   "description": "",
-  "main": "index.js",
+  "main": "constellation-min.js",
   "private": "true",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "build": "webpack",
     "webpack-prod": "webpack --mode=production --watch",
     "webpack-dev": "webpack --mode=development --watch",
-    "sass": "node_modules/.bin/sass --watch src/css/style.scss:css/style.css"
+    "sass": "node_modules/.bin/sass --watch src/css/style.scss:docs/css/style.css",
+    "sass-simple": "node_modules/.bin/sass --watch src/css/simple.scss:docs/css/simple.css",
+    "sass-interact": "node_modules/.bin/sass --watch src/css/interact.scss:docs/css/interact_style.css"
   },
   "keywords": [],
-  "author": "",
+  "author": "Mitchell Wold",
   "license": "ISC",
   "devDependencies": {
     "@babel/core": "^7.13.15",
     "@babel/preset-env": "^7.13.15",
     "babel-loader": "^8.2.2",
-    "sass": "^1.32.11",
+    "sass": "^1.35.2",
     "webpack": "^5.33.2",
     "webpack-cli": "^4.7.2"
   },
