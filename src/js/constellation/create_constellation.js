@@ -1,5 +1,6 @@
 import Constellation from './constellation';
 import Point from './point';
+import Shape from './shape';
 import Vertex from './vertex';
 
 class CreateConstellation extends Constellation {
@@ -8,8 +9,17 @@ class CreateConstellation extends Constellation {
     ctx.clearRect(0, 0, this.canvas.el.width, this.canvas.el.height);
 
     // order of shapes drawn is important for visual appeal
+
+    // Draw all shapes
+    ctx.lineWidth = Shape.options.lineWidth;
+    ctx.strokeStyle = Shape.options.strokeColor;
+    ctx.fillStyle = Shape.options.fillColor;
     this.polygons.forEach((shape) => shape.draw(ctx));
     this.lines.forEach((shape) => shape.draw(ctx));
+
+    // Draw all vertices
+    ctx.lineWidth = Vertex.options.lineWidth;
+    ctx.strokeStyle = Vertex.options.strokeColor;
     this.vertices.forEach((vtx) => vtx.draw(ctx));
     this.vertices.forEach((vtx) => vtx.label(ctx));
   }

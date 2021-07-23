@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Caffeine</title>
+  <link rel="stylesheet" href="./css/simple.css">
+  <script src="./js/constellation.js"></script>
+  <script>
+    const caffeineArtboard = {
+      points: {
+        0: [28, 42],
+        1: [45, 32, true],
+        2: [63, 42, true],
+        3: [63, 63, true],
+        4: [45, 72],
+        5: [28, 64, true],
+        6: [82, 36],
+        7: [93, 52, true],
+        8: [82, 69],
+        9: [89, 52, true],
+        10: [82, 64, true],
+        11: [67, 45, true],
+        12: [67, 60, true],
+        13: [44, 19, true],
+        14: [46, 19, true],
+        15: [10, 32, true],
+        16: [16, 70, true],
+        17: [17, 71, true],
+        18: [45, 94, true],
+        19: [88, 15, true],
+        20: [14, 72],
+        21: [45, 15],
+      },
+      lines: [
+        [2, 1, 0, 5, 4, 3, 8, 7, 6, 2, 3],
+        [11, 12],
+        [9, 10],
+        [13, 1, 14],
+        [0, 15],
+        [16, 5, 17],
+        [4, 18],
+        [6, 19]
+      ],
+      polygons: [],
+      options: {
+        vertices: {
+          strokeColor: '#87998C',
+          fillColor: '#A63A29',
+          altFillColor: '#F5EFD5',
+          lineWidth: 10,
+          radius: 60
+        },
+        shapes: {
+          strokeColor: '#87998C',
+          fillColor: '#102A3B',
+          lineCap: 'round',
+          lineWidth: 10,
+        },
+        scaleDown: {
+          maxWidth: 768,
+          factor: 3
+        },
+      }
+    };
+
+    document.addEventListener("DOMContentLoaded", function() {
+      initConstellation('my-canvas', caffeineArtboard);
+    });
+
+  </script>
+</head>
+
+<body>
+  <div id="background-img">
+    <canvas id="my-canvas"></canvas>
+  </div>
+</body>
+
+</html>
