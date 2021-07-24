@@ -1,0 +1,132 @@
+/* Reset */
+html, body, header, footer, section,
+a, h1, h2, img, p, div, button, canvas {
+  margin: 0;
+  border: 0;
+  padding: 0;
+  outline: 0;
+  box-sizing: inherit;
+  font: inherit;
+  text-decoration: inherit;
+  text-align: inherit;
+  color: inherit;
+  background: transparent;
+}
+
+/* style */
+body {
+  position: relative;
+  height: 100%;
+  font-family: "Lato", sans-serif;
+  background-color: #F5EFD5;
+  overflow: auto;
+}
+
+body * {
+  -webkit-touch-callout: none;
+  -webkit-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+}
+
+#background-img {
+  position: fixed;
+  display: block;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  touch-action: none;
+}
+
+body {
+  color: #474747;
+  background-color: #87998C;
+}
+
+header {
+  padding: 25px;
+  background-color: rgba(16, 42, 59, 0.5);
+  color: #F5EFD5;
+}
+header h1 {
+  font-size: bold;
+  text-align: center;
+  font-size: 12vw;
+}
+
+section {
+  margin: 10vw;
+}
+section h2 {
+  text-align: center;
+  margin: 15px 0;
+  font-size: 2em;
+}
+section p {
+  position: absolute;
+  bottom: 0;
+  right: 0;
+  left: 0;
+  margin: 6px;
+  padding: 10px;
+  color: #F5EFD5;
+  background-color: rgba(71, 71, 71, 0.7);
+}
+
+#description {
+  text-align: center;
+  padding: 20px 20px 0 20px;
+  font-size: 1.5em;
+}
+
+img {
+  width: 80vw;
+  height: auto;
+  max-width: 450px;
+  max-height: 450px;
+  border: 6px solid #102A3B;
+  border-radius: 3px;
+  box-sizing: border-box;
+  box-shadow: 0 2px 4px 0 #474747;
+  transition: box-shadow 0.2s ease;
+}
+img:hover {
+  box-shadow: 0 8px 16px 0 #474747;
+}
+
+footer {
+  text-align: end;
+  padding: 15px;
+  margin-top: 20px;
+  background-color: rgba(16, 42, 59, 0.5);
+}
+
+.img-link {
+  position: relative;
+}
+
+#artboards {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+@media screen and (min-width: 768px) {
+  header h1 {
+    font-size: 6vw;
+  }
+
+  section {
+    margin: 40px;
+  }
+  section h2 {
+    font-size: 2em;
+  }
+
+  #description {
+    padding: 25px;
+  }
+}
+
+/*# sourceMappingURL=style.css.map */

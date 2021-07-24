@@ -3,10 +3,12 @@ const path = require('path');
 module.exports = {
   entry: {  
     bundle: './src/js/index.js',
+    notFound: './src/js/not_found.js',
+    constellation: './src/js/constellation_build.js'
   },
   output: {
     filename: '[name].js',
-    path: path.resolve(__dirname, 'js'),
+    path: path.resolve(__dirname, 'docs/js'),
   },
   module: {
     rules: [
