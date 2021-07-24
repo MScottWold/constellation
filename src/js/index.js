@@ -59,6 +59,7 @@ $(() => {
       });
       this.$destroyShapesButton.on('click', () => {
         this.constellation.destroyShapes();
+        this._hideControls();
       });
     },
   };
