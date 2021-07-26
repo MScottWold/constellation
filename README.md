@@ -4,6 +4,9 @@ Constellation is a JavaScript library for creating dynamic line art.
 
 Visit live examples at: https://mscottwold.github.io/constellation/
 
+Get the code for your own constellation here: 
+https://github.com/MScottWold/constellation/blob/158cf3fe3e57756d8064ad5d369cdee1908a11d2/constellation-min.js
+
 ![artboard](https://user-images.githubusercontent.com/10493350/126943230-f4548498-34b4-4ac5-b2f8-4bd0332301fd.gif)
 
 # About
@@ -251,6 +254,14 @@ const myInProgressArtboard = { /* artboard & options */ };
 
 initCreateConstellation('my-canvas', myInProgressArtboard);
 ```
+
+# Final Note
+
+When making use of the interactive features on a touchscreen, it may be helpful 
+to make use of 
+[touch-action](https://developer.mozilla.org/en-US/docs/Web/CSS/touch-action) 
+and [user-select](https://developer.mozilla.org/en-US/docs/Web/CSS/user-select), 
+where appropriate.
 
 # Technologies Used
 * JavaScript (ES6+)
