@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Random</title>
+  <link rel="stylesheet" href="./css/simple.css">
+  <script src="./js/constellation.js"></script>
+  <script>
+    const artboard = {
+      points: {},
+      lines: [],
+      polygons: [],
+      options: {
+        vertices: {
+          strokeColor: '#87998C',
+          fillColor: '#A63A29',
+          altFillColor: '#F5EFD5',
+          lineWidth: 2,
+          radius: 4
+        },
+        scaleDown: {
+          maxWidth: 380,
+          factor: 2
+        },
+        stretch: true
+      }
+    };
+
+    function random() {
+      return Math.floor(Math.random() * 101);
+    }
+
+    for (let i = 0; i <= 500; i++) {
+      artboard.points[i] = [random(), random()];
+    }
+
+    document.addEventListener("DOMContentLoaded", function () {
+      const constellation = initConstellation('my-canvas', artboard);
+      constellation.changeMouseMode('coalesce');
+    });
+
+  </script>
+</head>
+
+<body>
+  <div id="background-img">
+    <canvas id="my-canvas"></canvas>
+  </div>
+</body>
+
+</html>
