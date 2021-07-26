@@ -32,11 +32,4 @@ body {
   touch-action: none;
 }
 
-body * {
-  -webkit-touch-callout: none;
-  -webkit-user-select: none;
-  -ms-user-select: none;
-  user-select: none;
-}
-
-/*# sourceMappingURL=simple.css.map */
+/*# sourceMappingURL=draw.css.map */

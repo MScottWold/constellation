@@ -9,9 +9,7 @@
     "build": "webpack",
     "webpack-prod": "webpack --mode=production --watch",
     "webpack-dev": "webpack --mode=development --watch",
-    "sass": "node_modules/.bin/sass --watch src/css/style.scss:docs/css/style.css",
-    "sass-simple": "node_modules/.bin/sass --watch src/css/simple.scss:docs/css/simple.css",
-    "sass-interact": "node_modules/.bin/sass --watch src/css/interact.scss:docs/css/interact_style.css"
+    "sass": "node_modules/.bin/sass --watch src/css/style.scss:docs/css/style.css src/css/simple.scss:docs/css/simple.css src/css/interact.scss:docs/css/interact_style.css src/css/draw.scss:docs/css/draw.css"
   },
   "keywords": [],
   "author": "Mitchell Wold",
