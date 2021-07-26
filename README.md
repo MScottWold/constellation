@@ -4,6 +4,8 @@ Constellation is a JavaScript library for creating dynamic line art.
 
 Visit live examples at: https://mscottwold.github.io/constellation/
 
+![artboard](https://user-images.githubusercontent.com/10493350/126943230-f4548498-34b4-4ac5-b2f8-4bd0332301fd.gif)
+
 # About
 
 The line art consists of vertices, lines, and shapes that wander around, but 
