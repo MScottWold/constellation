@@ -1,3 +1,10 @@
 @import './colors.scss';
 @import './reset.scss';
 @import './general_style.scss';
+
+body * {
+  -webkit-touch-callout: none;
+    -webkit-user-select: none;
+        -ms-user-select: none;
+            user-select: none; 
+}

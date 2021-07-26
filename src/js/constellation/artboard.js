@@ -41,7 +41,7 @@ export const artboard = {
       lineWidth: 8,
     },
     scaleDown: {
-      maxWidth: 380,
+      maxWidth: 415,
       factor: 2
     },
     stretch: true

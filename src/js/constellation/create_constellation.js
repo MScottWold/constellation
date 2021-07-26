@@ -39,6 +39,7 @@ class CreateConstellation extends Constellation {
   _showPoints() {
     // Only used while creating artboard
     const report = document.createElement('p');
+    report.setAttribute('id', 'points');
     report.style.backgroundColor = 'white';
     report.style.color = 'black';
     report.style.border = '2px solid black';
@@ -67,6 +68,7 @@ class CreateConstellation extends Constellation {
     pointList += '};';
     report.innerText = pointList;
     document.body.appendChild(report);
+    this.pointsDisplayed = !this.pointsDisplayed;
   }
 
   _installListeners() {
@@ -81,7 +83,12 @@ class CreateConstellation extends Constellation {
 
     document.addEventListener('keydown', function (e) {
       if (e.code === 'Enter') {
-        this._showPoints();
+        if (this.pointsDisplayed) {
+          document.getElementById('points').remove();
+          this.pointsDisplayed = !this.pointsDisplayed;
+        } else {
+          this._showPoints();
+        }
       }
 
     }.bind(this))

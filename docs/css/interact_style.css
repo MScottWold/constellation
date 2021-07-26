@@ -22,13 +22,6 @@ body {
   overflow: auto;
 }
 
-body * {
-  -webkit-touch-callout: none;
-  -webkit-user-select: none;
-  -ms-user-select: none;
-  user-select: none;
-}
-
 #background-img {
   position: fixed;
   display: block;
@@ -117,6 +110,13 @@ body * {
 }
 #bkgd-modes button:last-of-type {
   border-radius: 0 0 5px 5px;
+}
+
+body * {
+  -webkit-touch-callout: none;
+  -webkit-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
 }
 
 /*# sourceMappingURL=interact_style.css.map */
