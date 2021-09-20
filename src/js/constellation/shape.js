@@ -10,6 +10,13 @@ class Shape {
     this.polygon = polygon;
   }
 
+  // Set default options
+  static options = {
+    strokeColor: 'black',
+    fillColor: 'white',
+    lineWidth: 2,
+  };
+
   draw(ctx) {
     ctx.beginPath();
     ctx.moveTo(this.points[0].x, this.points[0].y);
@@ -30,12 +37,5 @@ class Shape {
     this.points = this.points.filter((pt) => pt !== point);
   }
 }
-
-// Set default options
-Shape.options = {
-  strokeColor: 'black',
-  fillColor: 'white',
-  lineWidth: 2,
-};
 
 export default Shape;

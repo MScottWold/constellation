@@ -12,6 +12,10 @@ class Point {
     this.rad = (Math.PI * 2 / 45) * (Math.floor(Math.random() * 45) + 1);
   }
 
+  static speed = 0.01;
+  static range = 50;
+  static turnRadius = 2 * Math.PI / 45;
+
   update(elapsed) {
     const distToMouse = this._distanceTo(this.mouse.x, this.mouse.y);
 
@@ -165,9 +169,5 @@ class Point {
     return Math.sqrt(sideSq1 + sideSq2);
   }
 }
-
-Point.speed = 0.01;
-Point.range = 50;
-Point.turnRadius = 2 * Math.PI / 45;
 
 export default Point;

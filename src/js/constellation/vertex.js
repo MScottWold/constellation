@@ -3,6 +3,14 @@ class Vertex {
     this.point = point;
   }
 
+  // Set default options
+  static options = {
+    fillColor: 'white',
+    altFillColor: 'black',
+    strokeColor: 'black',
+    radius: 4,
+  };
+
   draw(ctx) {
     ctx.beginPath();
     ctx.arc(this.point.x, this.point.y, Vertex.options.radius, 0, Math.PI * 2, false);
@@ -25,13 +33,5 @@ class Vertex {
     ctx.fillText(this.point.id, this.point.x - 3, this.point.y + 13);
   }
 }
-
-// Set default options
-Vertex.options = {
-  fillColor: 'white',
-  altFillColor: 'black',
-  strokeColor: 'black',
-  radius: 4,
-};
 
 export default Vertex;

@@ -33,12 +33,12 @@ export const artboard = {
       fillColor: '#A63A29',
       altFillColor: '#F5EFD5',
       lineWidth: 5,
-      radius: 10
+      radius: 6
     },
     shapes: {
       strokeColor: '#87998C',
       fillColor: '#102A3B',
-      lineWidth: 8,
+      lineWidth: 6,
     },
     scaleDown: {
       maxWidth: 415,
